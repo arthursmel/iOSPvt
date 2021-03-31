@@ -6,14 +6,33 @@
 //
 
 import UIKit
+import iOSPvtLib
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PvtResultDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func startPvt(_ sender: UIButton) {
+        
+        let pvtViewController = PvtViewControllerBuilder(self)
+            .withTestCount(3)
+            .withCountdownTime(3 * 1000)
+            .withInterval(min: 2 * 1000, max: 4 * 1000)
+            .withStimulusTimeout(10 * 1000)
+            .build()
+        
+        present(pvtViewController, animated: true)
+        
+    }
+    
+    func onResults(results: String) {
+        print("onResults: \(results)")
+    }
+    
+    func onCancel() {
+        print("onCancel")
     }
 
-
 }
-

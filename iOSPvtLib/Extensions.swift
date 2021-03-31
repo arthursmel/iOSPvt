@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+internal extension Date {
     var unixTimestamp: Int64 {
         return Int64(self.timeIntervalSince1970 * 1000)
     }

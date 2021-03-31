@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol PvtResultDelegate {
+public protocol PvtResultDelegate {
     func onResults(results: String)
     func onCancel()
 }
 
-internal class PvtViewController: UIViewController, PvtDelegate {
+public class PvtViewController: UIViewController, PvtDelegate {
     
     private let queue = DispatchQueue.global(qos: .userInteractive)
     private let group = DispatchGroup()
@@ -35,7 +35,7 @@ internal class PvtViewController: UIViewController, PvtDelegate {
     // TODO: extract this
     private let instructionText = "When the display goes RED, press on the screen as quickly as you are able. Your response time will then be shown in millseconds.\nTouch screen to start the test."
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
@@ -69,7 +69,7 @@ internal class PvtViewController: UIViewController, PvtDelegate {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         pvt.curDispatchWorkItem?.cancel()
         if !allTasksComplete() {
             delegate?.onCancel()

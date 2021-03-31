@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PvtViewControllerBuilder {
+public class PvtViewControllerBuilder {
     private var testCount = DEFAULT_TEST_COUNT
     private var minInterval = DEFAULT_MIN_INTERVAL
     private var maxInterval = DEFAULT_MAX_INTERVAL
@@ -16,39 +16,38 @@ class PvtViewControllerBuilder {
     private var stimulusTimeout = DEFAULT_STIMULUS_TIMEOUT
     private var postResponseDelay = DEFAULT_POST_RESPONSE_DELAY
     private var delegate: PvtResultDelegate? = nil
+    
+    public init(_ delegate: PvtResultDelegate) {
+        self.delegate = delegate
+    }
 
-    func withTestCount(_ count: Int) -> PvtViewControllerBuilder {
+    public func withTestCount(_ count: Int) -> PvtViewControllerBuilder {
         self.testCount = count
         return self
     }
 
-    func withInterval(min: Int64, max: Int64) -> PvtViewControllerBuilder {
+    public func withInterval(min: Int64, max: Int64) -> PvtViewControllerBuilder {
         self.minInterval = min
         self.maxInterval = max
         return self
     }
 
-    func withCountdownTime(_ time: Int64) -> PvtViewControllerBuilder {
+    public func withCountdownTime(_ time: Int64) -> PvtViewControllerBuilder {
         self.countDownTime = time
         return self
     }
 
-    func withStimulusTimeout(_ timeout: Int64) -> PvtViewControllerBuilder {
+    public func withStimulusTimeout(_ timeout: Int64) -> PvtViewControllerBuilder {
         self.stimulusTimeout = timeout
         return self
     }
 
-    func withPostResponseDelay(_ delay: Int64) -> PvtViewControllerBuilder {
+    public func withPostResponseDelay(_ delay: Int64) -> PvtViewControllerBuilder {
         self.postResponseDelay = delay
         return self
     }
     
-    func withDelegate(_ delegate: PvtResultDelegate) -> PvtViewControllerBuilder {
-        self.delegate = delegate
-        return self
-    }
-    
-    func build() -> PvtViewController {
+    public func build() -> PvtViewController {
         let vc = PvtViewController()
 
         vc.testCount = testCount

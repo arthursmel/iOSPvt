@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct PvtResult: Codable {
+public struct PvtResult: Codable {
     let testNumber: Int
     let timeStamp: Int64
     let interval: Int64
