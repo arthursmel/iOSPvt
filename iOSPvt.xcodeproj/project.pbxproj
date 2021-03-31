@@ -14,6 +14,11 @@
 		A0988B9A2614A66C000E6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0988B982614A66C000E6713 /* Main.storyboard */; };
 		A0988B9C2614A66F000E6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0988B9B2614A66F000E6713 /* Assets.xcassets */; };
 		A0988B9F2614A66F000E6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0988B9D2614A66F000E6713 /* LaunchScreen.storyboard */; };
+		A0988BCD2614CCF6000E6713 /* Pvt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0988BCC2614CCF6000E6713 /* Pvt.swift */; };
+		A0988BD32614CD15000E6713 /* PvtResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0988BD22614CD15000E6713 /* PvtResult.swift */; };
+		A0988BD92614CD3A000E6713 /* PvtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0988BD82614CD3A000E6713 /* PvtViewController.swift */; };
+		A0988BDF2614CD69000E6713 /* PvtViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0988BDE2614CD69000E6713 /* PvtViewControllerBuilder.swift */; };
+		A0988BE52614CD81000E6713 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0988BE42614CD81000E6713 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		A0988BA02614A66F000E6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0988BA52614A670000E6713 /* iOSPvtExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPvtExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0988BB02614A670000E6713 /* iOSPvtExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPvtExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0988BCC2614CCF6000E6713 /* Pvt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pvt.swift; sourceTree = "<group>"; };
+		A0988BD22614CD15000E6713 /* PvtResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PvtResult.swift; sourceTree = "<group>"; };
+		A0988BD82614CD3A000E6713 /* PvtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PvtViewController.swift; sourceTree = "<group>"; };
+		A0988BDE2614CD69000E6713 /* PvtViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PvtViewControllerBuilder.swift; sourceTree = "<group>"; };
+		A0988BE42614CD81000E6713 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,11 @@
 			children = (
 				A0988B832614A2BC000E6713 /* iOSPvt.h */,
 				A0988B842614A2BC000E6713 /* Info.plist */,
+				A0988BCC2614CCF6000E6713 /* Pvt.swift */,
+				A0988BD22614CD15000E6713 /* PvtResult.swift */,
+				A0988BD82614CD3A000E6713 /* PvtViewController.swift */,
+				A0988BDE2614CD69000E6713 /* PvtViewControllerBuilder.swift */,
+				A0988BE42614CD81000E6713 /* Extensions.swift */,
 			);
 			path = iOSPvt;
 			sourceTree = "<group>";
@@ -220,6 +235,7 @@
 				TargetAttributes = {
 					A0988B7F2614A2BC000E6713 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					A0988B8F2614A66C000E6713 = {
 						CreatedOnToolsVersion = 12.4;
@@ -294,6 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0988BE52614CD81000E6713 /* Extensions.swift in Sources */,
+				A0988BD92614CD3A000E6713 /* PvtViewController.swift in Sources */,
+				A0988BDF2614CD69000E6713 /* PvtViewControllerBuilder.swift in Sources */,
+				A0988BCD2614CCF6000E6713 /* Pvt.swift in Sources */,
+				A0988BD32614CD15000E6713 /* PvtResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +502,7 @@
 		A0988B892614A2BC000E6713 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5ZNHT2H747;
@@ -497,6 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rs.arthu.iOSPvt;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -505,6 +528,7 @@
 		A0988B8A2614A2BC000E6713 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5ZNHT2H747;
