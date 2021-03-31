@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "iOSPvt"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of iOSPvt."
+  spec.summary      = "A Psychomotor Vigilance Task (PVT) for iOS."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,9 +25,10 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+                  A library to implement a configurable PVT on iOS
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/iOSPvt"
+  spec.homepage     = "https://github.com/arthursmel/iOSPvt"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,8 +39,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  # spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -79,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/iOSPvt.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/arthursmel/IosPvt", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
