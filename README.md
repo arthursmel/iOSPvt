@@ -17,6 +17,17 @@ pod 'iOSPvt'
 import iOSPvtLib
 ```
 
+Implement the `PvtResultDelegate` to get the results from the PVT
+```swift
+func onResults(results: String) {
+    print("onResults: \(results)")
+}
+
+func onCancel() {
+    print("onCancel")
+}
+```
+
 Use the builder to configure the PVT:
 
 ```swift
@@ -44,16 +55,6 @@ Present the view controller:
 present(pvtViewController, animated: true)
 ```
 
-Implement the `PvtResultDelegate` to get the results from the PVT
-```swift
-func onResults(results: String) {
-    print("onResults: \(results)")
-}
-
-func onCancel() {
-    print("onCancel")
-}
-```
 JSON format:
 ```
 [
