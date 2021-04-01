@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start PVT"/>
                                 <connections>
-                                    <action selector="startPvt:" destination="BYZ-38-t0r" eventType="touchDragInside" id="nCg-Kt-dkn"/>
+                                    <action selector="startPvt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p3S-Lk-2qi"/>
                                 </connections>
                             </button>
                         </subviews>
