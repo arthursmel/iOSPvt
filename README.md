@@ -30,12 +30,12 @@ func onCancel() {
 Use the builder to configure the PVT:
 
 ```swift
-let pvtViewController = PvtViewControllerBuilder(self)
+let pvtViewController = PvtViewControllerBuilder()
     .withTestCount(3)
     .withCountdownTime(3 * 1000)
     .withInterval(min: 2 * 1000, max: 4 * 1000)
     .withStimulusTimeout(10 * 1000)
-    .build()
+    .build(self)
 ```
 
 Present the view controller:
