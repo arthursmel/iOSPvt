@@ -7,14 +7,13 @@ A psychomotor vigilance task (PVT) for iOS.
 via [Cocoapods](https://cocoapods.org)
 
 ```ruby
-use_frameworks!
-pod 'iOSPvt'
+pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.0.3'
 ```
 
 ## Usage
 
 ```swift
-import iOSPvtLib
+import iOSPvt
 ```
 
 Implement the `PvtResultDelegate` to get the results from the PVT
@@ -39,6 +38,12 @@ let pvtViewController = PvtViewControllerBuilder(self)
     .build()
 ```
 
+Present the view controller:
+
+```swift
+present(pvtViewController, animated: true)
+```
+
 Builder methods:
 
 method | description | Default Value
@@ -48,12 +53,6 @@ method | description | Default Value
 `.withInterval(min: Int64, max: Int64)` | The interval used to general a random waiting duration before the stimulus is shown | 2000ms, 4000ms
 `.withStimulusTimeout(timeout: Int64)` | The maximum duration a user can take to respond | 10000ms
 `.withPostResponseDelay(delay: Int64)` | The time the user's response will be held on the screen for | 2000ms
-
-Present the view controller:
-
-```swift
-present(pvtViewController, animated: true)
-```
 
 JSON format:
 ```
