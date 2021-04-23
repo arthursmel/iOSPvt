@@ -17,8 +17,8 @@ import iOSPvt
 ```
 
 Implement the `PvtResultDelegate` to get the results from the PVT
-```swift
-func onResults(results: String) {
+```swift 
+func onResults(_ results: [[String : Any]]) {
     print("onResults: \(results)")
 }
 
@@ -54,7 +54,7 @@ method | description | Default Value
 `.withStimulusTimeout(timeout: Int64)` | The maximum duration a user can take to respond | 10000ms
 `.withPostResponseDelay(delay: Int64)` | The time the user's response will be held on the screen for | 2000ms
 
-JSON format:
+Result format:
 ```
 [
     {
