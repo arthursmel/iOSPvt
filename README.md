@@ -7,7 +7,7 @@ A psychomotor vigilance task (PVT) for iOS.
 via [Cocoapods](https://cocoapods.org)
 
 ```ruby
-pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.0.3'
+pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.1.0'
 ```
 
 ## Usage
@@ -53,6 +53,7 @@ method | description | Default Value
 `.withInterval(min: Int64, max: Int64)` | The interval used to general a random waiting duration before the stimulus is shown | 2000ms, 4000ms
 `.withStimulusTimeout(timeout: Int64)` | The maximum duration a user can take to respond | 10000ms
 `.withPostResponseDelay(delay: Int64)` | The time the user's response will be held on the screen for | 2000ms
+`.withTestingConfigEnabled(Boolean)` | To enable the testing config for the arduino rig | false
 
 Result format:
 ```

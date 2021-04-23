@@ -26,6 +26,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
     var countDownTime = DEFAULT_COUNTDOWN_TIME
     var stimulusTimeout = DEFAULT_STIMULUS_TIMEOUT
     var postResponseDelay = DEFAULT_POST_RESPONSE_DELAY
+    var isTestingConfigEnabled = DEFAULT_IS_TESTING_CONFIG_ENABLED
     
     var delegate: PvtResultDelegate? = nil
     
@@ -228,6 +229,8 @@ public class PvtViewController: UIViewController, PvtDelegate {
     
     func onStateUpdate(newState: PvtState) {
         switch newState {
+        case is Pvt.Countdown:
+            setBackgroundColorIfTestingConfigEnabled()
         case is Pvt.Instructions:
             messageLabel.text = instructionText
         case is Pvt.Interval:
@@ -241,6 +244,12 @@ public class PvtViewController: UIViewController, PvtDelegate {
             messageLabel.text = "Complete\nTest will now close"
         default:
             break
+        }
+    }
+    
+    func setBackgroundColorIfTestingConfigEnabled() {
+        if isTestingConfigEnabled {
+            setBackgroundColor(to: UIColor.green)
         }
     }
     
