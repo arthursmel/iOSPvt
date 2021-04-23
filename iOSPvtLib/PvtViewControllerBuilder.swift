@@ -17,9 +17,8 @@ public class PvtViewControllerBuilder {
     private var postResponseDelay = DEFAULT_POST_RESPONSE_DELAY
     private var delegate: PvtResultDelegate? = nil
     
-    public init() {
-    }
-
+    public init() {}
+    
     public func withTestCount(_ count: Int) -> PvtViewControllerBuilder {
         self.testCount = count
         return self

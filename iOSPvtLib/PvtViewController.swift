@@ -87,7 +87,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
                 self.runCountdown()
             }
             
-            while self.testsRemain() && !self.workItemCancelled() {
+            while self.testsRemain() && !self.dispatchItemCancelled() {
                 let intervalDelay = self.pvt.getNextIntervalDelay()
                 
                 self.runInterval(delay: intervalDelay)
@@ -107,7 +107,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
                     testNumber: self.pvt.currentTestIndex()
                 )
                 
-                sleep(2)
+                self.sleepMillis(self.postResponseDelay)
                 
                 if result == nil {
                     continue
@@ -129,20 +129,17 @@ public class PvtViewController: UIViewController, PvtDelegate {
         self.pvt.remainingTestCount > 0
     }
     
-    private func workItemCancelled() -> Bool {
-        self.pvt.curDispatchWorkItem!.isCancelled
-    }
-    
     private func runInterval(delay: Int64) {
         pvt.updateState(with: .StartInterval)
-        usleep(UInt32(delay * 1000))
+        sleepMillis(delay)
     }
     
     private func runStimulus(startTimestamp: Int64, interval: Int64, testNumber: Int) -> PvtResult? {
         pvt.updateState(with: .ShowStimulus)
         
         while testHasNotTimedOut(startTimestamp) &&
-            !validReactionHasOccured() && !workItemCancelled() {
+            !validReactionHasOccurred() &&
+            !dispatchItemCancelled() {
                 
             DispatchQueue.main.async {
                 self.onReactionDelayUpdate(
@@ -163,7 +160,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
         }
     }
     
-    private func validReactionHasOccured() -> Bool {
+    private func validReactionHasOccurred() -> Bool {
         pvt.curState is Pvt.ValidReaction
     }
     
@@ -194,7 +191,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
     private func handleCompletePvt() {
         pvt.updateState(with: .Complete)
         
-        sleep(2)
+        sleepMillis(self.postResponseDelay)
         
         DispatchQueue.main.async {
             self.onCompleteTest(jsonResults: self.pvt.jsonResults()!)
@@ -255,6 +252,10 @@ public class PvtViewController: UIViewController, PvtDelegate {
     private func setBackgroundColor(to color: UIColor) {
         view.backgroundColor = color
         messageLabel.backgroundColor = color
+    }
+    
+    private func sleepMillis(_ millis: Int64) {
+        usleep(UInt32(millis * 1000))
     }
     
     private func setupViews() {
