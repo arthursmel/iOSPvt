@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol PvtResultDelegate {
-    func onResults(results: String)
+    func onResults(_ results: [[String : Any]])
     func onCancel()
 }
 
@@ -113,7 +113,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
                     continue
                 } else {
                     self.pvt.decrementRemainingTestCount()
-                    self.pvt.results.append(result!)
+                    self.pvt.results.append(result!.map)
                 }
             }
             
@@ -176,6 +176,10 @@ public class PvtViewController: UIViewController, PvtDelegate {
         Date().unixTimestamp - startTimestamp
     }
     
+    private func sleepMillis(_ millis: Int64) {
+        usleep(UInt32(millis * 1000))
+    }
+    
     private func runCountdown() {
         pvt.updateState(with: .StartCountdown)
         
@@ -188,17 +192,11 @@ public class PvtViewController: UIViewController, PvtDelegate {
         }
     }
     
-    private func handleCompletePvt() {
-        pvt.updateState(with: .Complete)
-        
-        sleepMillis(self.postResponseDelay)
-        
-        DispatchQueue.main.async {
-            self.onCompleteTest(jsonResults: self.pvt.jsonResults()!)
-        }
-    }
-    
-    private func handleValidReaction(startTimestamp: Int64, interval: Int64, testNumber: Int) -> PvtResult {
+    private func handleValidReaction(
+        startTimestamp: Int64,
+        interval: Int64,
+        testNumber: Int
+    ) -> PvtResult {
         let reactionTimestamp = (pvt.curState as! Pvt.ValidReaction).reactionTimestamp
         let reactionDelay = reactionTimestamp - startTimestamp
         
@@ -208,10 +206,20 @@ public class PvtViewController: UIViewController, PvtDelegate {
         
         return PvtResult(
             testNumber: testNumber,
-            timeStamp: startTimestamp,
+            timestamp: startTimestamp,
             interval: interval,
             reactionDelay: reactionDelay
         )
+    }
+    
+    private func handleCompletePvt() {
+        pvt.updateState(with: .Complete)
+        
+        sleepMillis(self.postResponseDelay)
+        
+        DispatchQueue.main.async {
+            self.onCompleteTest(results: self.pvt.results)
+        }
     }
     
     private func onStimulus() {
@@ -244,18 +252,14 @@ public class PvtViewController: UIViewController, PvtDelegate {
         messageLabel.text = String(millisElapsed)
     }
     
-    func onCompleteTest(jsonResults: String) {
-        delegate?.onResults(results: jsonResults)
+    func onCompleteTest(results: [PvtResultMap]) {
+        delegate?.onResults(results)
         dismiss(animated: true)
     }
     
     private func setBackgroundColor(to color: UIColor) {
         view.backgroundColor = color
         messageLabel.backgroundColor = color
-    }
-    
-    private func sleepMillis(_ millis: Int64) {
-        usleep(UInt32(millis * 1000))
     }
     
     private func setupViews() {

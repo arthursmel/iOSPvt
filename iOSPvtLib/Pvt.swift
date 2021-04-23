@@ -36,7 +36,7 @@ internal class Pvt {
     var remainingTestCount = 0
     var curDispatchWorkItem: DispatchWorkItem? = nil
     var curState: PvtState = Instructions()
-    var results = [PvtResult]()
+    var results = [PvtResultMap]()
     
     var testCount: Int
     var minInterval: Int64
@@ -82,18 +82,6 @@ internal class Pvt {
     
     func getNextIntervalDelay() -> Int64 {
         Int64.random(in: minInterval...maxInterval)
-    }
-    
-    func jsonResults() -> String? {
-        let jsonEncoder = JSONEncoder()
-        var jsonData: Data? = nil
-        
-        do {
-            jsonData = try jsonEncoder.encode(results)
-            return String(data: jsonData!, encoding: String.Encoding.utf8)
-        } catch {
-            return nil
-        }
     }
     
     struct Instructions: PvtState {
