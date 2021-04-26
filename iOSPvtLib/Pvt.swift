@@ -15,6 +15,7 @@ internal let DEFAULT_MAX_INTERVAL = Int64(4 * ONE_SECOND)
 internal let DEFAULT_COUNTDOWN_TIME = Int64(3 * ONE_SECOND)
 internal let DEFAULT_STIMULUS_TIMEOUT = Int64(10 * ONE_SECOND)
 internal let DEFAULT_POST_RESPONSE_DELAY = Int64(2 * ONE_SECOND)
+internal let DEFAULT_IS_TESTING_CONFIG_ENABLED = false
 
 internal protocol PvtState {
     func consumeAction(action: Pvt.Action) throws -> PvtState

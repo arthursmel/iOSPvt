@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol PvtResultDelegate {
-    func onResults(_ results: [[String : Any]])
+    func onResults(_ results: [PvtResultMap])
     func onCancel()
 }
 
@@ -26,6 +26,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
     var countDownTime = DEFAULT_COUNTDOWN_TIME
     var stimulusTimeout = DEFAULT_STIMULUS_TIMEOUT
     var postResponseDelay = DEFAULT_POST_RESPONSE_DELAY
+    var isTestingConfigEnabled = DEFAULT_IS_TESTING_CONFIG_ENABLED
     
     var delegate: PvtResultDelegate? = nil
     
@@ -204,12 +205,35 @@ public class PvtViewController: UIViewController, PvtDelegate {
             self.onReactionDelayUpdate(millisElapsed: reactionDelay)
         }
         
-        return PvtResult(
+        return createResult(
             testNumber: testNumber,
             timestamp: startTimestamp,
             interval: interval,
             reactionDelay: reactionDelay
         )
+    }
+    
+    private func createResult(
+        testNumber: Int,
+        timestamp: Int64,
+        interval: Int64,
+        reactionDelay: Int64
+    ) -> PvtResult {
+        if (isTestingConfigEnabled){
+            return PvtTestConfigResult(
+                testNumber: testNumber,
+                timestamp: timestamp,
+                interval: interval,
+                reactionDelay: reactionDelay
+            )
+        } else {
+            return PvtResult(
+                testNumber: testNumber,
+                timestamp: timestamp,
+                interval: interval,
+                reactionDelay: reactionDelay
+            )
+        }
     }
     
     private func handleCompletePvt() {
@@ -228,6 +252,8 @@ public class PvtViewController: UIViewController, PvtDelegate {
     
     func onStateUpdate(newState: PvtState) {
         switch newState {
+        case is Pvt.Countdown:
+            setBackgroundColorIfTestingConfigEnabled()
         case is Pvt.Instructions:
             messageLabel.text = instructionText
         case is Pvt.Interval:
@@ -241,6 +267,12 @@ public class PvtViewController: UIViewController, PvtDelegate {
             messageLabel.text = "Complete\nTest will now close"
         default:
             break
+        }
+    }
+    
+    func setBackgroundColorIfTestingConfigEnabled() {
+        if isTestingConfigEnabled {
+            setBackgroundColor(to: UIColor.green)
         }
     }
     

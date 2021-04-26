@@ -15,6 +15,7 @@ public class PvtViewControllerBuilder {
     private var countDownTime = DEFAULT_COUNTDOWN_TIME
     private var stimulusTimeout = DEFAULT_STIMULUS_TIMEOUT
     private var postResponseDelay = DEFAULT_POST_RESPONSE_DELAY
+    private var isTestingConfigEnabled = DEFAULT_IS_TESTING_CONFIG_ENABLED
     private var delegate: PvtResultDelegate? = nil
     
     public init() {}
@@ -45,6 +46,11 @@ public class PvtViewControllerBuilder {
         return self
     }
     
+    public func withTestingConfigEnabled(_ isTestingConfigEnabled: Bool) -> PvtViewControllerBuilder {
+        self.isTestingConfigEnabled = isTestingConfigEnabled
+        return self
+    }
+    
     public func build(_ delegate: PvtResultDelegate) -> PvtViewController {
         let vc = PvtViewController()
 
@@ -54,6 +60,7 @@ public class PvtViewControllerBuilder {
         vc.countDownTime = countDownTime
         vc.stimulusTimeout = stimulusTimeout
         vc.postResponseDelay = postResponseDelay
+        vc.isTestingConfigEnabled = isTestingConfigEnabled
         vc.delegate = delegate
         
         return vc

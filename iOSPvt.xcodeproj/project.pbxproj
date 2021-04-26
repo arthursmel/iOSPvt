@@ -13,6 +13,7 @@
 		A0988B9A2614A66C000E6713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0988B982614A66C000E6713 /* Main.storyboard */; };
 		A0988B9C2614A66F000E6713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0988B9B2614A66F000E6713 /* Assets.xcassets */; };
 		A0988B9F2614A66F000E6713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0988B9D2614A66F000E6713 /* LaunchScreen.storyboard */; };
+		A09D799A2632FFB800DCFC0E /* PvtTestConfigResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D79992632FFB800DCFC0E /* PvtTestConfigResult.swift */; };
 		A0B412CD2614D5AD00C87033 /* iOSPvtLib.h in Headers */ = {isa = PBXBuildFile; fileRef = A0B412CB2614D5AD00C87033 /* iOSPvtLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0B412D02614D5AD00C87033 /* iOSPvtLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B412C92614D5AC00C87033 /* iOSPvtLib.framework */; };
 		A0B412D12614D5AD00C87033 /* iOSPvtLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0B412C92614D5AC00C87033 /* iOSPvtLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -73,6 +74,7 @@
 		A0988BA02614A66F000E6713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0988BA52614A670000E6713 /* iOSPvtExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPvtExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0988BB02614A670000E6713 /* iOSPvtExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPvtExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09D79992632FFB800DCFC0E /* PvtTestConfigResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PvtTestConfigResult.swift; sourceTree = "<group>"; };
 		A0B412C92614D5AC00C87033 /* iOSPvtLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSPvtLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B412CB2614D5AD00C87033 /* iOSPvtLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSPvtLib.h; sourceTree = "<group>"; };
 		A0B412CC2614D5AD00C87033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A0B413322614D8EF00C87033 /* PvtViewController.swift */,
 				A0B413382614D92200C87033 /* Extensions.swift */,
 				A0B4133E2614D9B600C87033 /* PvtViewControllerBuilder.swift */,
+				A09D79992632FFB800DCFC0E /* PvtTestConfigResult.swift */,
 			);
 			path = iOSPvtLib;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				A0B413332614D8EF00C87033 /* PvtViewController.swift in Sources */,
 				A0B4131F2614D77600C87033 /* Pvt.swift in Sources */,
 				A0B413292614D83A00C87033 /* PvtResult.swift in Sources */,
+				A09D799A2632FFB800DCFC0E /* PvtTestConfigResult.swift in Sources */,
 				A0B413392614D92200C87033 /* Extensions.swift in Sources */,
 				A0B4133F2614D9B600C87033 /* PvtViewControllerBuilder.swift in Sources */,
 			);
