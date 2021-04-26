@@ -13,7 +13,7 @@ pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.1.0'
 ## Usage
 
 ```swift
-import iOSPvtLib
+import iOSPvt
 ```
 
 Implement the `PvtResultDelegate` to get the results from the PVT
