@@ -18,7 +18,7 @@ import iOSPvt
 
 Implement the `PvtResultDelegate` to get the results from the PVT
 ```swift 
-func onResults(_ results: [[String : Any]]) {
+func onResults(_ results: [PvtResultMap]) {
     print("onResults: \(results)")
 }
 

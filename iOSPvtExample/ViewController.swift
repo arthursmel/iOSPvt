@@ -8,7 +8,8 @@
 import UIKit
 import iOSPvtLib
 
-class ViewController: UIViewController, PvtResultDelegate {    
+class ViewController: UIViewController, PvtResultDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +28,7 @@ class ViewController: UIViewController, PvtResultDelegate {
         present(pvtViewController, animated: true)
     }
     
-    func onResults(_ results: [[String : Any]]) {
+    func onResults(_ results: [PvtResultMap]) {
         print("onResults: \(results)")
     }
     

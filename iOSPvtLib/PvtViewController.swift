@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol PvtResultDelegate {
-    func onResults(_ results: [[String : Any]])
+    func onResults(_ results: [PvtResultMap])
     func onCancel()
 }
 
@@ -205,12 +205,35 @@ public class PvtViewController: UIViewController, PvtDelegate {
             self.onReactionDelayUpdate(millisElapsed: reactionDelay)
         }
         
-        return PvtResult(
+        return createResult(
             testNumber: testNumber,
             timestamp: startTimestamp,
             interval: interval,
             reactionDelay: reactionDelay
         )
+    }
+    
+    private func createResult(
+        testNumber: Int,
+        timestamp: Int64,
+        interval: Int64,
+        reactionDelay: Int64
+    ) -> PvtResult {
+        if (isTestingConfigEnabled){
+            return PvtTestConfigResult(
+                testNumber: testNumber,
+                timestamp: timestamp,
+                interval: interval,
+                reactionDelay: reactionDelay
+            )
+        } else {
+            return PvtResult(
+                testNumber: testNumber,
+                timestamp: timestamp,
+                interval: interval,
+                reactionDelay: reactionDelay
+            )
+        }
     }
     
     private func handleCompletePvt() {
