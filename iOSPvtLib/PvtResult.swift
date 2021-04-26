@@ -8,15 +8,14 @@
 
 import Foundation
 
-internal typealias PvtResultMap = [String : Any]
+public typealias PvtResultMap = [String : Any]
+
+public let TEST_NUMBER = "testNumber"
+public let TIMESTAMP = "timestamp"
+public let INTERVAL = "interval"
+public let REACTION_DELAY = "reactionDelay"
 
 internal class PvtResult {
-    
-    private let TEST_NUMBER = "testNumber"
-    private let TIMESTAMP = "timestamp"
-    private let INTERVAL = "interval"
-    private let REACTION_DELAY = "reactionDelay"
-
     private let RESULT_MAP_FIELD_COUNT = 4
     
     let testNumber: Int
@@ -24,7 +23,7 @@ internal class PvtResult {
     let interval: Int64
     let reactionDelay: Int64
     
-    init(
+    required init(
         testNumber: Int,
         timestamp: Int64,
         interval: Int64,
