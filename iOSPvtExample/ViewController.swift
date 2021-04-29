@@ -22,7 +22,6 @@ class ViewController: UIViewController, PvtResultDelegate {
             .withInterval(min: 2 * 1000, max: 4 * 1000)
             .withStimulusTimeout(10 * 1000)
             .withPostResponseDelay(2 * 1000)
-            .withTestingConfigEnabled(true)
             .build(self)
         
         present(pvtViewController, animated: true)
