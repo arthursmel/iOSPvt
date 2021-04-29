@@ -49,7 +49,7 @@ public class PvtViewController: UIViewController, PvtDelegate {
         pvt.setDelagate(to: self)
     }
 
-    @objc func reactionButtonTouchUpInside(sender: UIButton!) {
+    @objc func reactionOnTouchDown(sender: UIButton!) {
         let reactionTimestamp = Date().unixTimestamp
 
         switch pvt.curState {
@@ -311,8 +311,8 @@ public class PvtViewController: UIViewController, PvtDelegate {
         reactionButton.translatesAutoresizingMaskIntoConstraints = false
         reactionButton.addTarget(
             self,
-            action: #selector(self.reactionButtonTouchUpInside(sender:)),
-            for: .touchUpInside
+            action: #selector(self.reactionOnTouchDown(sender:)),
+            for: .touchDown
         )
         view.addSubview(reactionButton)
         
