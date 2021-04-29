@@ -7,7 +7,7 @@ A psychomotor vigilance task (PVT) for iOS.
 via [Cocoapods](https://cocoapods.org)
 
 ```ruby
-pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.1.0'
+pod 'iOSPvt', :git => 'https://github.com/arthursmel/iOSPvt', :tag => '0.1.1'
 ```
 
 ## Usage
